@@ -1,0 +1,15 @@
+def fuction(txt):
+  print(f"Replacing spaces with hifen: \n{txt.replace(' ', '-')}")
+  print(f"\nThe letter (a) repeats {txt.count('a')} times in the input text.")
+  print(f"\nThe input text divided is: \n{txt.split()}")
+  print(f"\nThe input text in uppercase is: \n{txt.upper()}")
+  print(f"\nThe input text in lowercase is: \n{txt.lower()}")
+  print(f"\n{txt.isupper()}, The input text is only in uppercase.")
+  print(f"\n{txt.isupper()}, The input text is only in lowercase.")
+  print(f"\n{txt.isalnum()}, The input text is a number with 1 digit.")
+  print(f"\n{txt.isdigit()}, The input text is a number.")
+  print(f"\n{txt.isalpha()}, The input text is a single letter from a-z")
+  print(f"\n{txt.isspace()}, The input text is only spaces")
+
+txt = input("Insert a text: ")
+fuction(txt)
