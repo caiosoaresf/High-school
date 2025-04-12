@@ -38,3 +38,26 @@ call VERIFYPRODUCT(700);
 call VERIFYPRODUCT(600);
 call VERIFYPRODUCT(900);
 call VERIFYPRODUCT(800);
+
+sql
+
+Copy
+DELIMITER $$
+CREATE FUNCTION FornecedorRentavel(codigoforne INT, valor DOUBLE) RETURNS INT DETERMINISTIC
+BEGIN
+    DECLARE quantidade INT;
+    IF (valor >= 0) THEN
+        SET quantidade = (SELECT COUNT(*) 
+                          FROM SUPPLIER_ASK_PRODUCT fpp 
+                          WHERE codigoforne = fpp.Cod3Supplier AND fpp.Price > valor);
+        IF (quantidade > 0) THEN
+            RETURN quantidade;
+        ELSE
+            RETURN 0;
+        END IF;
+    END IF;
+    RETURN 0;
+END $$
+DELIMITER ;
+
+select FornecedorRentavel(2,1000);
